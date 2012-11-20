@@ -1,14 +1,13 @@
 package by.minsler.library.command;
 
-import java.io.IOException;
+import by.minsler.library.bean.Book;
+import by.minsler.library.dao.BookUserDao;
+import by.minsler.library.dao.MysqlBookUserDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import by.minsler.library.bean.Book;
-import by.minsler.library.dao.BookUserDao;
-import by.minsler.library.dao.MysqlBookUserDao;
+import java.io.IOException;
 
 public class EditWriteCommand implements Command {
 
@@ -18,6 +17,8 @@ public class EditWriteCommand implements Command {
 		BookUserDao dao = MysqlBookUserDao.getInstace();
 
 		Book book = new Book();
+        book.setId(Integer.parseInt(request
+                .getParameter("id")));
 		book.setName(request.getParameter("name"));
 		book.setAuthor(request.getParameter("author"));
 		book.setDescription(request.getParameter("description"));
@@ -26,6 +27,7 @@ public class EditWriteCommand implements Command {
 		book.setIdpublihser(Integer.parseInt(request
 				.getParameter("idpublisher")));
 
+        System.out.println(book);
 		dao.updateBook(book);
 		try {
 			response.sendRedirect("book");

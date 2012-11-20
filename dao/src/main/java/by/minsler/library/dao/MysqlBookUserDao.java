@@ -1,15 +1,15 @@
 package by.minsler.library.dao;
 
+import by.minsler.library.bean.Book;
+import by.minsler.library.bean.User;
+import by.minsler.library.db.ConnectionInit;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import by.minsler.library.bean.Book;
-import by.minsler.library.bean.User;
-import by.minsler.library.db.ConnectionInit;
 
 public class MysqlBookUserDao implements BookUserDao {
 
@@ -153,6 +153,7 @@ public class MysqlBookUserDao implements BookUserDao {
 			updateBookStatement.setString(4, book.getDate());
 			updateBookStatement.setDouble(5, book.getPrice());
 			updateBookStatement.setInt(6, book.getIdpublihser());
+            updateBookStatement.setInt(7,book.getId());
 			result = updateBookStatement.executeUpdate();
 
 			result = updateBookStatement.executeUpdate();

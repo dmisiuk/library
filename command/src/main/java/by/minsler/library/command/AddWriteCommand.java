@@ -1,16 +1,15 @@
 package by.minsler.library.command;
 
-import java.io.IOException;
+import by.minsler.library.bean.Book;
+import by.minsler.library.bean.User;
+import by.minsler.library.dao.BookUserDao;
+import by.minsler.library.dao.MysqlBookUserDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import by.minsler.library.bean.Book;
-import by.minsler.library.bean.User;
-import by.minsler.library.dao.BookUserDao;
-import by.minsler.library.dao.MysqlBookUserDao;
+import java.io.IOException;
 
 public class AddWriteCommand implements Command {
 
@@ -28,7 +27,7 @@ public class AddWriteCommand implements Command {
 		book.setDate(request.getParameter("date"));
 		book.setPrice(Double.parseDouble(request.getParameter("price")));
 		book.setIdpublihser(user.getId());
-
+        System.out.println(book);
 		dao.addBook(book);
 		try {
 			response.sendRedirect("book");

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%--<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>--%>
 <%@page import="by.minsler.library.bean.Book"%>
 <%@page import="java.util.List"%>
 
@@ -27,7 +27,7 @@
 	<tr><td>Description:</td><td><textarea name="description" rows="3" cols="100">${requestScope.book.description}</textarea></td></tr>
 	<tr><td>Date:</td><td><input type="text" name="date" value="${requestScope.book.date}"></td></tr>
 	<tr><td>Price:</td><td><input type="text" name="price"value="${requestScope.book.price}"></td></tr>
-	<tr><td>IdPublisher:</td><td><input readonly="readonly" type="text" name="price"value="${requestScope.book.idpublihser}"></td></tr>
+	<tr><td>IdPublisher:</td><td><input readonly="readonly" type="text" name="idpublisher"value="${requestScope.book.idpublihser}"></td></tr>
 	</table>
 	<br><input type="submit" name="add" value="add">
 </form>

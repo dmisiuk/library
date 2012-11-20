@@ -19,7 +19,7 @@ if (user != null) {
 </head>
 <body>
 <div id="cheet">
-for test use: <br>login: <b>test</b> <br>password: <b>test</b>
+for test using: <br>login: <b>test</b> <br>password: <b>test</b>
 </div>
 <form id="login-form" action="login" method="post" >
 	<input type="hidden" name="operation" value="login">

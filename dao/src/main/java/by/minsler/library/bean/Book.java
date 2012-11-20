@@ -77,4 +77,18 @@ public class Book implements Serializable {
 		this.idpublihser = idpublihser;
 	}
 
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", author='" + author + '\'' +
+                ", date='" + date + '\'' +
+                ", price=" + price +
+                ", idpublihser=" + idpublihser +
+                ", user=" + user +
+                '}';
+    }
 }

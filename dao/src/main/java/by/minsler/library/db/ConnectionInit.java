@@ -21,8 +21,11 @@ public class ConnectionInit implements ServletContextListener {
 
 		try {
 			Class.forName(jdbcDriverName);
-			connection = DriverManager.getConnection(jdbcUrl, jdbcUser,
-					jdbcPassword);
+            //for mysql
+			//connection = DriverManager.getConnection(jdbcUrl, jdbcUser,jdbcPassword);
+
+            // for sqlite
+            connection = DriverManager.getConnection("jdbc:sqlite:library.sqlite3");
 			context.log("jdbc driver: connection created");
 			context.setAttribute("connection", connection);
 			System.out.println("connectin created");

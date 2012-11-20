@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%--<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>--%>
 <%@page import="by.minsler.library.bean.Book"%>
 <%@page import="java.util.List"%>
 
