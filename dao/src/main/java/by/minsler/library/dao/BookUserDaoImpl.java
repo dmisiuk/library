@@ -2,7 +2,7 @@ package by.minsler.library.dao;
 
 import by.minsler.library.bean.Book;
 import by.minsler.library.bean.User;
-import by.minsler.library.db.ConnectionInit;
+import by.minsler.library.db.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,9 +11,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MysqlBookUserDao implements BookUserDao {
+public class BookUserDaoImpl implements BookUserDao {
 
-	private static MysqlBookUserDao inst;
+	private static BookUserDaoImpl inst;
 
 	private Connection connection;
 	private String getBooksQuery = "select id, name, description, author, date, price, idpublisher from books";
@@ -31,8 +31,8 @@ public class MysqlBookUserDao implements BookUserDao {
 	private PreparedStatement getUserByIdStatement;
 	private PreparedStatement updateBookStatement;
 
-	private MysqlBookUserDao() {
-		connection = ConnectionInit.getConnection();
+	private BookUserDaoImpl() {
+		connection = DBConnection.getInstance().getConnection();
 		createStatements();
 	}
 
@@ -52,10 +52,10 @@ public class MysqlBookUserDao implements BookUserDao {
 		}
 	}
 
-	synchronized public static MysqlBookUserDao getInstace() {
+	synchronized public static BookUserDaoImpl getInstace() {
 
 		if (inst == null)
-			inst = new MysqlBookUserDao();
+			inst = new BookUserDaoImpl();
 		return inst;
 
 	}

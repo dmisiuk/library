@@ -3,7 +3,7 @@ package by.minsler.library.command;
 import by.minsler.library.bean.Book;
 import by.minsler.library.bean.User;
 import by.minsler.library.dao.BookUserDao;
-import by.minsler.library.dao.MysqlBookUserDao;
+import by.minsler.library.dao.BookUserDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +16,7 @@ public class AddWriteCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		BookUserDao dao = MysqlBookUserDao.getInstace();
+		BookUserDao dao = BookUserDaoImpl.getInstace();
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 

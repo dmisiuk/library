@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import by.minsler.library.bean.Book;
 import by.minsler.library.dao.BookUserDao;
-import by.minsler.library.dao.MysqlBookUserDao;
+import by.minsler.library.dao.BookUserDaoImpl;
 
 public class ShowCommand implements Command {
 
@@ -19,7 +19,7 @@ public class ShowCommand implements Command {
 			throws ServletException, IOException {
 		RequestDispatcher view = request
 				.getRequestDispatcher("/WEB-INF/jsp/book/show.jsp");
-		BookUserDao dao = MysqlBookUserDao.getInstace();
+		BookUserDao dao = BookUserDaoImpl.getInstace();
 		List<Book> list = dao.getBooks();
 		request.setAttribute("list", list);
 

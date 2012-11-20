@@ -7,14 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import by.minsler.library.dao.BookUserDao;
-import by.minsler.library.dao.MysqlBookUserDao;
+import by.minsler.library.dao.BookUserDaoImpl;
 
 public class DeleteCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		BookUserDao dao = MysqlBookUserDao.getInstace();
+		BookUserDao dao = BookUserDaoImpl.getInstace();
 
 		int id = Integer.parseInt(request.getParameter("id"));
 		dao.deleteBook(id);
